@@ -14,7 +14,8 @@
  */
 
 void ith(char *password, int index, int n) {
-  for (int i=1; i<=n; i++) {
+  int i=1;
+  for (i; i<=n; i++) {
     password[i-1] = (index % 26) + 'a';
     index /= 26;
   }
@@ -46,7 +47,8 @@ void *thread_func(void *arg) {
   struct thread_func_arg *bounds = (struct thread_func_arg *) arg;
   int i=bounds->start;
   for(i; i<bounds->end; i++) {
-    for (int j=0; j<M; j++) {
+    int j=0;
+    for (j; j<M; j++) {
       ith(password, i, 4);
       ith(salt,     j, 2);
       // Lock mutex to examine crypt's static memory
